@@ -58,8 +58,8 @@ export default function BackgroundRotator({
       new Promise<void>((resolve) => {
         const img = new Image();
         img.src = src;
-        if ((img as any).decode) {
-          (img as any)
+        if (typeof img.decode === 'function') {
+          img
             .decode()
             .then(() => resolve())
             .catch(() => resolve());
@@ -117,7 +117,7 @@ export default function BackgroundRotator({
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       isTransitioningRef.current = false;
     };
-  }, [options.length, intervalMs, fadeMs]);
+  }, [options, intervalMs, fadeMs]);
 
   // Preload all images once after mount to avoid decode hiccups mid-transition
   useEffect(() => {
