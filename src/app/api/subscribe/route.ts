@@ -38,7 +38,9 @@ export async function POST(request: Request) {
     await sql`INSERT INTO email_signups (email) VALUES (${email}) ON CONFLICT (email) DO NOTHING`;
 
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch (err) {
+  } catch (error) {
+    // Log the error for diagnostics (Edge runtime supports console output)
+    console.error("/api/subscribe POST failed", error);
     return NextResponse.json(
       { error: "Unexpected server error. Please try again later." },
       { status: 500 }

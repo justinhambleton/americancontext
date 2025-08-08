@@ -45,7 +45,8 @@ export default function EmailCaptureForm() {
         };
         setError(data?.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch (error) {
+      console.error("Email subscribe failed", error);
       setError("Network error. Please try again.");
     } finally {
       setSubmitting(false);
@@ -54,8 +55,8 @@ export default function EmailCaptureForm() {
 
   if (success) {
     return (
-      <p className="mt-2 text-green-400" role="status" aria-live="polite">
-        Thanks for your interest — we’ll be in touch!
+      <p className="mt-2 text-white-400 animate-fade-in">
+        America thanks you for your curiosity. We will be in touch.
       </p>
     );
   }

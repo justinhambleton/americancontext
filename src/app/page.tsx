@@ -38,7 +38,11 @@ export default function Home() {
         <EmailCaptureForm />
       </section>
       <footer className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-gray-500 text-xs text-center select-none">
-        Copyright © 2025 FRNTR, LLC. All rights reserved.
+        <span>
+          Copyright © 2025 FRNTR, LLC. All rights reserved.
+        </span>
+        <span className="mx-2">•</span>
+        <a href="/privacy" className="underline hover:text-gray-300 transition-colors">Privacy Policy</a>
       </footer>
     </main>
   );
