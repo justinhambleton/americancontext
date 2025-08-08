@@ -12,7 +12,6 @@ function isValidEmail(value: string): boolean {
 
 export default function EmailCaptureForm() {
   const [email, setEmail] = useState("");
-  const [touched, setTouched] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,11 +20,9 @@ export default function EmailCaptureForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setTouched(true);
     setError(null);
 
     if (!valid) {
-      setError("Please enter a valid email address.");
       return;
     }
 
@@ -55,7 +52,7 @@ export default function EmailCaptureForm() {
 
   if (success) {
     return (
-      <p className="mt-2 text-white-400 animate-fade-in">
+      <p className="mt-2 text-gray-400 animate-fade-in">
         America thanks you for your curiosity. We will be in touch.
       </p>
     );
@@ -78,9 +75,7 @@ export default function EmailCaptureForm() {
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        onBlur={() => setTouched(true)}
-        aria-invalid={touched && !valid}
-        aria-describedby="email-error"
+        aria-invalid={Boolean(email) && !valid}
         disabled={submitting}
         className="w-full sm:flex-1 rounded-md bg-white/5 text-gray-100 placeholder-gray-400 px-4 py-3 outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-white/30 disabled:opacity-60 disabled:cursor-not-allowed transition"
       />
@@ -91,11 +86,6 @@ export default function EmailCaptureForm() {
       >
         {submitting ? "Submitting…" : "Request access"}
       </button>
-      {touched && !valid ? (
-        <span id="email-error" className="text-red-400 text-sm w-full text-left">
-          Please enter a valid email address.
-        </span>
-      ) : null}
       {error ? (
         <span className="text-red-400 text-sm w-full text-left">{error}</span>
       ) : null}

@@ -145,7 +145,7 @@ export default function BackgroundRotator({
     <div
       aria-hidden
       suppressHydrationWarning
-      className="absolute inset-0 pointer-events-none z-0 opacity-20"
+      className="absolute inset-0 pointer-events-none z-0 opacity-40"
     >
       {/* Base layer (always fully visible) */}
       <div
