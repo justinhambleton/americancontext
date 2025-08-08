@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import BackgroundRotator from "@/components/BackgroundRotator";
 import Typewriter from "@/components/Typewriter";
+import EmailCaptureForm from "@/components/EmailCaptureForm";
 
 export const metadata: Metadata = {
   title: "AmericanContext.ai",
@@ -34,29 +35,7 @@ export default function Home() {
           </em>
           <span className="cursor ml-1" aria-hidden>_</span>
         </p>
-        <form
-          action="https://formspree.io/f/yourFormId"
-          method="POST"
-          className="mt-2 w-full flex flex-col sm:flex-row items-center gap-3"
-        >
-          <label htmlFor="email" className="sr-only">
-            Email address
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="Enter your email"
-            className="w-full sm:flex-1 rounded-md bg-white/5 text-gray-100 placeholder-gray-400 px-4 py-3 outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-white/30 transition"
-          />
-          <button
-            type="submit"
-            className="w-full sm:w-auto rounded-md bg-red-600 hover:bg-red-700 text-white px-5 py-3 font-medium transition-colors"
-          >
-            Request access
-          </button>
-        </form>
+        <EmailCaptureForm />
       </section>
       <footer className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-gray-500 text-xs text-center select-none">
         Copyright © 2025 FRNTR, LLC. All rights reserved.

@@ -48,3 +48,7 @@ node_modules/
 .vercel
 out/
 **/out/
+
+# Env
+.env
+.env.local
