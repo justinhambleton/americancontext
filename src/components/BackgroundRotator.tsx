@@ -16,6 +16,11 @@ const DEFAULT_IMAGES = [
   '/images/home_3.jpeg',
   '/images/home_4.jpeg',
   '/images/home_5.jpeg',
+  '/images/home_6.jpeg',
+  '/images/home_7.jpeg',
+  '/images/home_8.jpeg',
+  '/images/home_9.jpeg',
+  '/images/home_10.jpeg',
 ];
 
 export default function BackgroundRotator({
